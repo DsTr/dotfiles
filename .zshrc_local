@@ -1,0 +1,62 @@
+
+#GLOBAL ALIASES
+alias -g NUL="> /dev/null 2>&1"
+alias -g C='| wc -l'
+alias -g EH='|& head'
+alias -g EL='|& less'
+alias -g ELS='|& less -S'
+alias -g ETL='|& tail -20'
+alias -g ET='|& tail'
+alias -g S='| sort'
+alias -g TL='| tail -20'
+alias -g T='| tail'
+alias -g G='| grep -'
+alias -g ND='*(/om[1])' # newest directory
+alias -g NF='*(.om[1])' # newest file
+#
+##Normal aliases
+alias x='clear'
+alias m='mc'
+alias mkdir='mkdir -p'
+alias free='free -m'
+alias mount='sudo mount'
+alias umount='sudo umount'
+alias s='yaourt -Ss'
+alias i='yaourt -S'
+
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#.git'
+# ignore case on copletion
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' '+m:{A-Z}={a-z}'
+
+# setup key accordingly
+[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
+[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
+[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
+[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"      history-beginning-search-backward
+[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    history-beginning-search-forward
+[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
+[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
+
+# Автодополнение ID процессов в виде меню:
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*'   force-list always
+
+function uds_php_generated_files_get {
+	git_st=$(git status); 
+	for phpfile in `echo $git_st | grep _packages/EDL/Event/ | grep -v 'file:' | grep php | awk '{print $2}'`; do 
+		echo $git_st | grep $(basename $phpfile .php).proto > /dev/null || echo -n "$phpfile "
+	done 
+}
+
+alias cleanuds='git checkout $(uds_php_generated_files_get)'
+
+export PHPCF='/Users/dmitrykostin/proj/phpcf/phpcf'
+
+alias ssl-get-cert-info='nmap -sV -sC $1 -p 443'
+
+alias hgit='git --git-dir ~/.dotfiles/.git --work-tree=$HOME'
+
