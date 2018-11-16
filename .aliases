@@ -11,7 +11,7 @@ fi
 
 is_linux=0
 if [[ "$OSTYPE" == linux* ]]; then
-  alias vim='nvim.bunble'
+  alias vim='nvim.appimage'
   is_linux=1
 fi
 
