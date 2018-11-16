@@ -10,7 +10,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 is_linux=0
-if [[ "$OSTYPE" == lunix* ]]; then
+if [[ "$OSTYPE" == linux* ]]; then
   alias vim='nvim.bunble'
   is_linux=1
 fi
