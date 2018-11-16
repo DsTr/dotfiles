@@ -31,6 +31,7 @@ zstyle ':prezto:load' pmodule \
   'terminal' \
   'editor' \
   'history' \
+  'history-substring-search' \
   'directory' \
   'spectrum' \
   'utility' \
@@ -42,7 +43,9 @@ zstyle ':prezto:load' pmodule \
   'osx' \
   'rsync' \
   'tmux' \
-  'ssh'
+  'ssh' \
+  'directory' \
+  'syntax-highlighting' # Executable commands will turn blue, incomplete or unrecognized commands will turn red, folders get underlined…
 
 #
 # Autosuggestions
