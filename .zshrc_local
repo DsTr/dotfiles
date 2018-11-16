@@ -1,29 +1,3 @@
-
-#GLOBAL ALIASES
-alias -g NUL="> /dev/null 2>&1"
-alias -g C='| wc -l'
-alias -g EH='|& head'
-alias -g EL='|& less'
-alias -g ELS='|& less -S'
-alias -g ETL='|& tail -20'
-alias -g ET='|& tail'
-alias -g S='| sort'
-alias -g TL='| tail -20'
-alias -g T='| tail'
-alias -g G='| grep -'
-alias -g ND='*(/om[1])' # newest directory
-alias -g NF='*(.om[1])' # newest file
-#
-##Normal aliases
-alias x='clear'
-alias m='mc'
-alias mkdir='mkdir -p'
-alias free='free -m'
-alias mount='sudo mount'
-alias umount='sudo umount'
-alias s='yaourt -Ss'
-alias i='yaourt -S'
-
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 

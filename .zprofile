@@ -6,22 +6,6 @@
 #
 
 #
-# Browser
-#
-is_macos=0
-if [[ "$OSTYPE" == darwin* ]]; then
-  is_macos=1
-  export BROWSER='open'
-  alias vim='nvim'
-fi
-
-is_linux=0
-if [[ "$OSTYPE" == lunix* ]]; then
-  alias vim='nvim.bunble'
-  is_linux=1
-fi
-
-#
 # Editors
 #
 export EDITOR='vim'
