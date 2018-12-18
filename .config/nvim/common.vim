@@ -9,6 +9,7 @@ set shiftwidth=4 " count of spaces in reintent operations
 set tabstop=4   " Width of tab if someone else put it
 set softtabstop=4   " Width <tab>
 set expandtab  " Make spaces on click on <tab>
+set autochdir
 
 set wildmenu
 set wildmode=list:longest,full
@@ -22,6 +23,11 @@ set undodir=$HOME/.local/share/nvim/undo//
 
 "  What to save in session
 set sessionoptions=curdir,buffers,tabpages,folds
+" Autorestore coursor position
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
 
 " Выключаем надоедливый "звонок"
 set novisualbell
