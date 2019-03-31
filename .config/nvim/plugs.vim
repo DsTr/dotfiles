@@ -1,9 +1,10 @@
-
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
+" TODO: https://github.com/airblade/vim-gitgutter
+"
 "Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 " PHP Documentor
 Plug 'tobyS/pdv', { 'for': 'php' }
@@ -41,7 +42,7 @@ Plug 'elzr/vim-json'
 Plug 'moll/vim-node'
 Plug 'ternjs/tern_for_vim', { 'for': 'javascript' } " JS autocomplete
 Plug 'othree/javascript-libraries-syntax.vim' 
-Plug 'w0rp/ale' " Lintwr
+Plug 'w0rp/ale' " Linter
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzyy file search
 " Plug 'mattn/emmet-vim' html/css autocomplete
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }

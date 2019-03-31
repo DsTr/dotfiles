@@ -11,12 +11,11 @@ let g:airline#extensions#tabline#enabled = 1
 
 " NERD Tree {{{
 nnoremap <silent> <leader>e :NERDTreeToggle<CR>
-nnoremap <silent> <leader>f :NERDTreeFind<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeChDirMode = 2
 " }}}
 
-" deoplete {{{
+" deoplete autocomplete {{{
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
@@ -68,8 +67,9 @@ command! DiffSaved vert new | set bt=nofile | r # | 0d_ | diffthis
 
 
 " fzf {{{
-nnoremap <silent> <C-p> :FZF<CR>
-nnoremap <silent> <C-u> :FZFMru<CR>
+nnoremap <silent> <C-f> :FZF<CR>
+" last used
+nnoremap <silent> <C-u> :FZFMru<CR> 
 let g:fzf_mru_file_list_size = 100
 function! s:buflist()
   redir => ls

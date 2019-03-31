@@ -1,0 +1,7 @@
+,<Enter> - buffers
+ctrl-f - fuzzy search
+ctrl-u - fuzzy search in last opened files (MRU)
+ctrl-p/n - previus/next buffers
+ctrl-h/j/k/l - move across windows
+,s - open file in splitted window
+,e - nerd tree
