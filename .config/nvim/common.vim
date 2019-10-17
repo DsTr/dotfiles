@@ -19,7 +19,7 @@ set autochdir
 
 set backup
 set backupdir=$HOME/.local/share/nvim/backup/
-set undodir=$HOME/.local/share/nvim/undo//
+set undodir=$HOME/.local/share/nvim/undo/
 
 "  What to save in session
 set sessionoptions=curdir,buffers,tabpages,folds

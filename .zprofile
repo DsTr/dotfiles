@@ -45,6 +45,7 @@ path=(
 )
 if [ $is_macos ]; then
     path=(
+      /usr/local/lib/ruby/gems/2.6.0/bin/
       /usr/local/opt/php@7.2/bin
       /usr/local/opt/node@8/bin
       #/usr/local/Cellar/python@2/2.7.15_1/bin/

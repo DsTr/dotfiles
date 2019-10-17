@@ -1,9 +1,11 @@
 
+mkdir -p $HOME/.local/share/nvim/{undo,backup}
+
 if $is_macos; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install ipython
-    brew install graphviz
-    brew install php7
+    #brew install graphviz
+   # brew install php7
     brew install node
     brew install telnet
     brew install go
@@ -17,7 +19,7 @@ if $is_macos; then
     brew install git-lfs
     brew install imagemagick --with-webp
     brew install lua
-    brew install lynx
+  #  brew install lynx
     brew install p7zip
     brew install pigz
     brew install pv
@@ -29,6 +31,5 @@ if $is_macos; then
     brew install zopfli
     brew cleanup
 fi
-
 
 pip3 install --user neovim

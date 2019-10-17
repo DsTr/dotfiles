@@ -15,6 +15,7 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
 [ -f ~/.aliases ] && source ~/.aliases
+[ -f ~/.aliases_elama ] && source ~/.aliases_elama
 
 # http://joshsymonds.com/blog/2014/06/12/shell-awesomeness-with-prezto/
 

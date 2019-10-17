@@ -11,8 +11,9 @@ fi
 
 is_linux=0
 if [[ "$OSTYPE" == linux* ]]; then
-  alias vim='nvim.appimage'
+#  alias vim='nvim.appimage'
   is_linux=1
+  alias vim='nvim'
 fi
 
 
@@ -27,9 +28,8 @@ alias -- -="cd -"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
-alias cb="cd ~/badoo"
 alias g="git"
-
+alias gP="git pull"
 
 
 # Trim new lines and copy to clipboard
