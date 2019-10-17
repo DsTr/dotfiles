@@ -1,8 +1,11 @@
 alias cs="cd ~/proj/statistics"
 alias cr="cd ~/proj/genreport"
 
-alias sr='docker-compose exec php-stats'
-alias srd='docker-compose exec -e XDEBUG_CONFIG="idekey=phpstorm" -e PHP_IDE_CONFIG="serverName=statistics.localhost" php-stats'
-alias srdc='srd ./bin/console'
+alias se='docker-compose exec php-stats'
+alias sed='docker-compose exec -e XDEBUG_CONFIG="idekey=phpstorm" -e PHP_IDE_CONFIG="serverName=statistics.localhost" php-stats'
+alias sedc='srd ./bin/console'
 
+alias re='docker-compose exec php-reports'
+alias red='docker-compose exec -e XDEBUG_CONFIG="idekey=phpstorm" -e PHP_IDE_CONFIG="serverName=reports.localhost" php-stats'
+alias redc='srd ./bin/console'
 
