@@ -1,8 +1,8 @@
 alias cs="cd ~/proj/statistics"
 alias cr="cd ~/proj/genreport"
 
-compose_dir=/home/elama/proj/purple_infrastructure/statistics_dev_docker/
-alias purple_docker_compose="set -a; source $compose_dir/.env; set +a; docker-compose -f $compose_dir/docker-compose.yml"
+compose_dir=~/proj/purple_infrastructure/statistics_dev_docker/
+alias purple_docker_compose="docker-compose -f $compose_dir/docker-compose.yml"
 
 alias sr='purple_docker_compose exec php-stats'
 alias srd='purple_docker_compose exec -e XDEBUG_CONFIG="idekey=phpstorm" -e PHP_IDE_CONFIG="serverName=statistics.localhost" php-stats'
@@ -10,7 +10,7 @@ alias srdc='srd ./bin/console'
 alias src='sr ./bin/console'
 
 alias rr='purple_docker_compose exec php-genreport'
-alias rrd='purple_docker_compose exec -e XDEBUG_CONFIG="idekey=phpstorm" -e PHP_IDE_CONFIG="serverName=reports.localhost" php-genreport'
+alias rrd='purple_docker_compose exec -e XDEBUG_CONFIG="idekey=phpstorm" -e PHP_IDE_CONFIG="serverName=genreport.localhost" php-genreport'
 alias rrdc='rrd ./bin/console'
 alias rrc='rr ./bin/console'
 
