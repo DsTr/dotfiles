@@ -36,11 +36,13 @@ typeset -gU cdpath fpath mailpath path
 export GOPATH=$HOME/.go
 export GOBIN=$GOPATH/bin
 path=(
+  $HOME/.local/bin
   /local/utils/
   /usr/local/{bin,sbin}
   $GOPATH/bin
   /usr/local/bin/
   $HOME/.dotfiles/bin
+  '/Users/tani/Library/Application Support/Coursier/bin'
   $path
 )
 if [ $is_macos ]; then
@@ -67,3 +69,23 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
+
+
+
+# ELAMA
+#
+
+BIDMANAGER_DB_URL="jdbc:postgresql://localhost:5432/bidmanager?connectTimeout=30&loginTimeout=30&socketTimeout=30"
+BIDMANAGER_DB_USER=postgres
+BIDMANAGER_DB_PASSWORD=123
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Created by `userpath` on 2020-11-17 17:27:49
+export PATH="$PATH:/Users/tani/.gyg/bin"
+
+# Created by `userpath` on 2020-11-17 17:27:51
+export PATH="$PATH:/Users/tani/Library/Python/3.9/bin"
+
+# Created by `userpath` on 2020-12-13 21:21:04
+export PATH="$PATH:/Users/tani/Library/Python/3.7/bin"

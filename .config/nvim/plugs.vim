@@ -9,20 +9,15 @@ call plug#begin('~/.local/share/nvim/plugged')
 " PHP Documentor
 Plug 'tobyS/pdv', { 'for': 'php' }
 " Autocomplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'derekwyatt/vim-scala'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
+" Configuration for vim-scala
+au BufRead,BufNewFile *.sbt set filetype=scala
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
+Plug 'tpope/vim-sensible'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
@@ -40,13 +35,16 @@ Plug 'othree/html5.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json'
 Plug 'moll/vim-node'
-Plug 'ternjs/tern_for_vim', { 'for': 'javascript' } " JS autocomplete
 Plug 'othree/javascript-libraries-syntax.vim' 
 Plug 'w0rp/ale' " Linter
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzyy file search
+Plug 'junegunn/fzf.vim'
 " Plug 'mattn/emmet-vim' html/css autocomplete
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'jremmen/vim-ripgrep'                                        " blazing fast search using ripgrep
 
+" Rainbow Parentheses 
+Plug 'luochen1990/rainbow'
 
 " Initialize plugin system
 call plug#end()

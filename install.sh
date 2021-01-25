@@ -2,34 +2,23 @@
 mkdir -p $HOME/.local/share/nvim/{undo,backup}
 
 if $is_macos; then
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     brew install ipython
     #brew install graphviz
    # brew install php7
-    brew install node
-    brew install telnet
-    brew install go
-    brew install unbound
-    brew install neovim
-    brew install python3
-    # Install other useful binaries.
-    brew install ack
-    #brew install exiv2
-    brew install git
-    brew install git-lfs
+    brew install node telnet go unbound neovim python3 ack rename ssh-copy-id tree 
     brew install imagemagick --with-webp
-    brew install lua
-  #  brew install lynx
-    brew install p7zip
-    brew install pigz
-    brew install pv
-    brew install rename
-    brew install rlwrap
-    brew install ssh-copy-id
-    brew install tree
-    brew installbindiff
-    brew install zopfli
     brew cleanup
+    # scala apps installer
+    brew install coursier/formulas/coursier
 fi
 
-pip3 install --user neovim
+
+if [ -n $is_macos ]; then
+    sudo dnf install neovim
+fi
+
+pip3 install neovim --upgrade
+pip2 install neovim --upgrade
+
+nvim +slient +VimEnter +PlugInstall +qall

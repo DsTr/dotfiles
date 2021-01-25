@@ -12,7 +12,6 @@ set expandtab  " Make spaces on click on <tab>
 
 set wildmenu
 set wildmode=list:longest,full
-let mapleader = ','
 "map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 set autochdir

@@ -14,6 +14,7 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
+[ -f ~/.zprotected ] && source ~/.zprotected
 [ -f ~/.aliases ] && source ~/.aliases
 [ -f ~/.aliases_elama ] && source ~/.aliases_elama
 
@@ -94,3 +95,21 @@ bindkey -M vicmd "q" push-line
 
 # it's like, space AND completion.  Gnarlbot.
 bindkey -M viins ' ' magic-space
+
+# Created by `userpath` on 2020-11-17 17:27:49
+export PATH="$PATH:/Users/tani/.gyg/bin"
+
+# Created by `userpath` on 2020-11-17 17:27:51
+export PATH="$PATH:/Users/tani/Library/Python/3.9/bin"
+. /Users/tani/.gygdev/completion-zsh.sh
+
+export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
+export PATH=~/.bin:$PATH
+
+export NEXUS_LOGIN=mkt
+export NEXUS_PASSWORD=4mVrCspFBR9g
+export AWS_PROFILE=production-readonly
+export SPARK_HOME=/usr/local
+
+# Created by `userpath` on 2020-12-13 21:21:04
+export PATH="$PATH:/Users/tani/Library/Python/3.7/bin"

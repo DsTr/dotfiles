@@ -87,3 +87,29 @@ alias umount='sudo umount'
 alias s='yaourt -Ss'
 alias i='yaourt -S'
 
+
+
+alias als="aws s3 ls --recursive --human-readable --summarize"
+
+function mutation() {
+    if [[ $1 ]] && [[ $2 ]]
+    then
+        JOB_NAME=$(gygkube job run -n marketing frankfurt1 sem-mutation-adapter adapt -- "$1" --input-list "$2" 2>&1 | tee /dev/tty | grep "adapt-\d*" -o | head -n 1)
+        if [[ $JOB_NAME ]]
+        then
+            echo "Waiting for $JOB_NAME's pod to be started\n" 
+            kubectl --context frankfurt1 -n marketing wait pod --for=condition=Ready -l job-name=$JOB_NAME
+            echo "Attaching to $JOB_NAME logs\n" 
+            kubectl --context frankfurt1 -n marketing logs -l job-name=$JOB_NAME --pod-running-timeout=20s -f
+        fi
+    else
+        echo "Usage: 'mutation DISPATCHER INPUT_FILE'\n\nExample: 'mutation page-feed-item-remove s3a://gyg-sem-jobs-manual-ops/orphan-sitelinks'"
+    fi
+}
+
+function databricks-connect() {
+    docker run --env DATABRICKS_ADDRESS=https://dbc-59447477-336d.cloud.databricks.com/ --env DATABRICKS_CLUSTER_ID=0104-082450-ash398 --env=DATABRICKS_API_TOKEN=dapi9f12a022f212a7fca888d00aada922d6 -it datathirstltd/dbconnect:6.6.0  bash -c "source ~/.profile && databricks-connect $1 $2 $3"
+}
+
+
+alias select_java11='export JAVA_HOME=~/Library/Java/JavaVirtualMachines/corretto-11.0.9.1/Contents/Home/'

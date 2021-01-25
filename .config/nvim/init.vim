@@ -1,5 +1,6 @@
 
 runtime plugs.vim
+runtime metals.vim
 runtime base.vim
 runtime common.vim
 
@@ -20,6 +21,23 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
 let g:deoplete#ignore_sources.php = ['omni']
+let g:deoplete#ignore_sources.js = ['omni']
+let g:deoplete#enable_refresh_always=0
+
+let g:deoplete#file#enable_buffer_path=1
+let g:deoplete#auto_completion_start_length = 0
+let g:tern_request_timeout = 1
+let g:tern_show_signature_in_pum = '0' " This do disable full signature type on autocomplete
+let g:tern#filetypes = [ 'jsx', 'js' ]
+" Whether to include the types of the completions in the result data. Default: 0
+let g:deoplete#sources#ternjs#types = 1
+" Whether to include the distance (in scopes for variables, in prototypes for 
+" properties) between the completions and the origin position in the result 
+" data. Default: 0
+let g:deoplete#sources#ternjs#depths = 1
+" Use tern_for_vim.
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
 " }}}
 
 " Tagbar {{{

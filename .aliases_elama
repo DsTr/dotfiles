@@ -2,7 +2,7 @@ alias cs="cd ~/proj/statistics"
 alias cr="cd ~/proj/genreport"
 
 compose_dir=~/proj/purple_infrastructure/statistics_dev_docker/
-alias purple_docker_compose="docker-compose -f $compose_dir/docker-compose.yml"
+alias purple_docker_compose="docker-compose"
 
 alias sr='purple_docker_compose exec php-stats'
 alias srd='purple_docker_compose exec -e XDEBUG_CONFIG="idekey=phpstorm" -e PHP_IDE_CONFIG="serverName=statistics.localhost" php-stats'
@@ -22,4 +22,23 @@ asyncReportConsumeStart() {
     rrc enqueue:consume statistics_report_response &
     export REPORTS_SC_PID=$!
 }
+
+
+alias elama_dns="docker run -d \
+  --restart=always \
+  --name=elama-dns \
+  --net=elama \
+  --dns=192.168.201.1 \
+  --dns=8.8.8.8 \
+  --cap-add=NET_ADMIN \
+  andyshinn/dnsmasq:2.75 \
+  --no-negcache  \
+  --cache-size=0  \
+  --max-cache-ttl=0"
+
+
+alias bidmanager_up="branch=\"bidmanager_up_\$(date +%s)\"; cd /Users/tani/proj/morda; git checkout master; git pull; git branch \$branch; git checkout \$branch; npm install '@elamajs/bidmanager'@latest; git add package-lock.json package.json; git commit -m 'Bidmanager version UP'; git push origin \$branch; open https://github.com/eLama/morda/pull/new/\$branch; cd -"
+alias rule_engine_up="branch=\"re_up_\$(date +%s)\"; cd /Users/tani/proj/morda; git checkout master; git pull; git branch \$branch; git checkout \$branch; npm install '@elamajs/rule-engine'@latest; git add package-lock.json package.json; git commit -m 'Rule engine version UP'; git push origin \$branch; open https://github.com/eLama/morda/pull/new/\$branch; cd -"
+alias rule_engine_ast_up="branch=\"re_up_\$(date +%s)\"; cd /Users/tani/proj/morda; git checkout master; git pull; git branch \$branch; git checkout \$branch; npm install '@elamajs/rule-engine-ast'@latest; git add package-lock.json package.json; git commit -m 'Rule engine AST version UP'; git push origin \$branch; open https://github.com/eLama/morda/pull/new/\$branch; cd -"
+
 

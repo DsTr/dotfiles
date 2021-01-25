@@ -2,7 +2,7 @@
 
 # make sure to add your password to ~/.pgpass as well
 LOCAL_PORT=5433
-PG_USER="baecher"
+PG_USER="dkostin"
 
 timeout 0.1s nc -z localhost $LOCAL_PORT
 if [ $? -ne 0 ]

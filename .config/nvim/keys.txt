@@ -1,4 +1,4 @@
-,<Enter> - buffers
+Space<Enter> - buffers
 ctrl-f - fuzzy search
 ctrl-u - fuzzy search in last opened files (MRU)
 ctrl-p/n - previus/next buffers
