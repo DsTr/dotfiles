@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# make sure to add your password to ~/.pgpass as well
+LOCAL_PORT=5433
+PG_USER="baecher"
+
+timeout 0.1s nc -z localhost $LOCAL_PORT
+if [ $? -ne 0 ]
+then
+    echo "creating tunnel..."
+    ssh -fNL ${LOCAL_PORT}:db-marketing.gyg.io:5432 ssh-user@gateway.gyg.io
+    sleep 0.5
+fi
+
+PGOPTIONS='--search-path=sem_data,report_configs,completion,sem_grooming' psql -h localhost -p $LOCAL_PORT -U $PG_USER mkt
